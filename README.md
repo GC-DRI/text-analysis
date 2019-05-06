@@ -26,7 +26,7 @@ By the end of this workshop, you will be able to:
 [Built-In Python Functions](sections/built-in.md)  
 [Making Your Own Corpus: Data Cleaning](sections/cleaning.md)  
 [Make Your Own Corpus](sections/make_corpus.md)  
-[Part-of-Speech Tagging](sections/conclusion.md)  
+[Part-of-Speech Tagging](sections/pos_tagging.md)  
 [Conclusion](sections/conclusion.md)  
 
 -----
