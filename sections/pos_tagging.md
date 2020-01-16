@@ -49,13 +49,13 @@ Now let's see what we got:
 tag_dict
 ```
 
-This would be better with some order to it, so let's organize our dictionary to find out what the most common tag is. We need the OrderedDict function. Just like with the url.request library, the 'collections' package comes built-in with Python, but needs to be imported to be used. We will only need the `OrderedDict`, so that's all we will import. Then we will pass the `OrderedDict` function our dictionary with a set of parameters, to tell it exactly how we want it to be ordered, and in which direction. We know what to do for this function because we [read the docs](https://docs.python.org/3/library/collections.html#collections.OrderedDict).
+This would be better with some order to it, but dictionaries are made to be unordered. When we google "sort dictionaries python" we find a solution in our great friend [stack overflow](https://stackoverflow.com/a/613218). Even though we cannot sort a dictionary, we can get a representation of a dictionary that is sorted. Let's do it and find out what the most common tag is.
 
 ```python
-from collections import OrderedDict
-tag_dict = OrderedDict(sorted(tag_dict.items(), key=lambda t: t[1], reverse=True))
+tag_dict_sorted = sorted(tag_dict.items(), reverse=True, key=lambda kv: kv[1])
+print(tag_dict_sorted)
 ```
 
-Now check out what we have. It looks like NN is the most common tag, we can look up what that is back at the [Penn Tree Bank](https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html). Looks like that is a Noun, singular or mass. Great! This information will likely help us with genre classification (as you will do in the Machine Learning tutorial), or identifying the author of a text, or a variety of other functions.
+Now check out what we have. It looks like NN is the most common tag, we can look up what that is back at the [Penn Tree Bank](https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html). Looks like that is a Noun, singular or mass. Great! This information will likely help us with genre classification, or identifying the author of a text, or a variety of other functions.
 
 [<<< Previous](make_corpus.md) | [Next >>>](conclusion.md)

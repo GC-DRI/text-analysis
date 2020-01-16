@@ -19,7 +19,7 @@ Now let's specify which URL we are going to use. Though you might be able to fin
 Set the url we want to a variable:
 
 ```python
-my_url = "http://www.gutenberg.org/cache/epub/996/pg996.txt"
+my_url = "http://www.gutenberg.org/files/996/996-0.txt"
 ```
 
 We still need to open the file and read the file. You will have to do this with files stored locally as well. (in which case, you would type the path to the file (i.e., "data/texts/mytext.txt") in place of `my_url`)
@@ -60,10 +60,10 @@ Since this is a list, we can look at any slice of it that we want. Let's inspect
 don_tokens[:10]
 ```
 
-That looks like metadata—not what we want to analyze. We will strip this off before proceeding. If you were doing this to many texts, you would want to use Regular Expressions. Regular Expressions are an extremely powerful way to match text in a document. However, we are just using this text, so we could either guess, or cut and paste the text into a text reader and identify the position of the first content (i.e., how many words in is the first word). That is the route we are going to take. We found that the first word of the story begins at word 120, so let's make a slice of the text from word position 120 to the end.
+That looks like metadata—not what we want to analyze. We will strip this off before proceeding. If you were doing this to many texts, you would want to use Regular Expressions. Regular Expressions are an extremely powerful way to match text in a document. However, we are just using this text, so we could either guess, or cut and paste the text into a text reader and identify the position of the first content (i.e., how many words in is the first word). That is the route we are going to take. We found that the content begins at word 315, so let's make a slice of the text from word position 315 to the end.
 
 ```python
-dq_text = don_tokens[120:]
+dq_text = don_tokens[315:]
 ```
 
 Finally, if we want to use the NLTK specific functions:
@@ -81,27 +81,28 @@ dq_nltk_text = nltk.Text(dq_text)
 
 If we wanted to use the built-in Python functions, we can just stick with our list of words in `dq_text`. Since we've already covered all of those functions, we are going to move ahead with cleaning our text.
 
-Just as we did earlier, we are going to remove the stopwords based on a list provided by NLTK, remove punctuation, and capitalization, and lemmatize the words. The code for each step follows:
+Just as we did earlier, we are going to remove the stopwords based on a list provided by NLTK, remove punctuation, and capitalization, and lemmatize the words. You can do it one by one as we did before, and that is totally fine. You can also merge some of the steps as you see below.
 
-1\. Remove stop words
-
-```python
-mystops = stopwords.words('english')
-dq_clean = [w for w in dq_text if w not in mystops]
-```
-
-2\. Lowercase and remove punctuation
+1\. Lowercase, remove punctuation and stopwords
 
 ```python
-dq_clean = [t.lower() for t in dq_clean if t.isalpha()]
+dq_clean = []
+for w in dq_text:
+    if w.isalpha():
+        if w.lower() not in stops:
+            dq_clean.append(w.lower())
+print(dq_clean[:50])
 ```
 
-3\. Lemmatize
+2\. Lemmatize
 
-```python 
+```python
 from nltk.stem import WordNetLemmatizer
 wordnet_lemmatizer = WordNetLemmatizer()
-dq_clean = [wordnet_lemmatizer.lemmatize(t) for t in dq_clean]
+
+dq_lemmatized = []
+for t in dq_clean:
+    dq_lemmatized.append(wordnet_lemmatizer.lemmatize(t))
 ```
 
 From here, you could perform all of the operations that we did after cleaning our text in the previous session. Instead, we will perform another type of analysis: part-of-speech (POS) tagging. 

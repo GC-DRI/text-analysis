@@ -36,6 +36,7 @@ Finally, in the Jupyter Notebook file browser, find the notebook file and open i
 
 Return to the Jupyter Home Tab in your Browser (or Launch the Jupyter Notebook again), and start a New Python3 Notebook using the `New` button in the upper right corner.
 
+Even though Jupyter Notebook doesn't force you to do so, it is very important to name your file, or you will end up later with a bunch of untitled files and have no idea what they are about. In the top left, click in the word "Untitled" and give your file a name such as "intro_nltk".
 In the first blank cell, type the following to import the NLTK library:
 
 ```python
