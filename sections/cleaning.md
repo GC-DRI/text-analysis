@@ -229,14 +229,14 @@ b_words = ['god', 'apostle', 'angel']
 
 Then we will loop through the words in our cleaned corpus, and see if any of them are in our list of biblical words. We'll then save into another list just those words that appear in both.
 
-     ```python
+```python
 my_list = []
 for word in b_words:
     if word in text1_clean:
         my_list.append(word)
     else:
         pass
-```		
+```
 
 And then we will print the results.
 
