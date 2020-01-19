@@ -15,7 +15,7 @@ If you already have a projects folder, you can skip this step.
 Next, clone the text analysis session repository into your projects folder by entering this command:
 
 ```bash
-git clone git@github.com:DHRI-Curriculum/text-analysis.git ~/Desktop/projects/text-analysis
+git clone https://github.com/GC-DRI/text-analysis.git ~/Desktop/projects/text-analysis
 ```
 
 Then move to the new directory:
@@ -45,14 +45,12 @@ import nltk
 
 **Libraries** are sets of instructions that Python can use to perform specialized functions. The Natural Language ToolKit (NLTK) is one such library. As the name suggests, its focus is on language processing.
 
-We will also need the matplotlib library later on, so import it now:
+Even though we will not use in this workshop, the matplotlib library is important when plotting graphs, so you will likely have to use it sooner or later. To import it:
 
 ```python
 import matplotlib
 ```
 	
-Matplotlib is a library for making graphs. In the middle of this tutorial, we are going to make a dispersion plot of words in our texts.
-
 Finally, because of a quirk of Jupyter notebooks, we need to specify that matplotlib should display its graphs in the notebook (as opposed to in a separate window), so we type this command (this is technically a Jupyter command, not Python):
 
 	%matplotlib inline

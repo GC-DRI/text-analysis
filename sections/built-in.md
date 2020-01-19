@@ -36,7 +36,7 @@ for t in text1:
 
 ![code](../images/for_loop_tokens.png)
 	
-Another way to perform the same action more tersely is to use what's called a **list comprehension**. A list comprehension is a shorter, faster way to write a for-loop, but is syntactically a little more difficult to read (for a human). But, in this case, it's much faster to process:
+Another way to perform the same action more tersely is to use what's called a [list comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions). A list comprehension is a shorter, faster way to write a for-loop, but is syntactically a little more difficult to read (for a human). But, in this case, it's much faster to process:
 
 ```python
 text1_tokens= [t.lower() for t in text1 if t.isalpha()]
@@ -66,7 +66,7 @@ So let's find out the length of our set. just like in math, we can also nest our
 len(set(text1_tokens))
 ```
 
-Great! Now we can calculate the **lexical density** of *Moby Dick*. Statistical studies have shown that lexical density (the number of unique words per total words) is a [good metric to approximate lexical diversity](http://www.pjos.org/index.php/LWPL/article/viewFile/2273/1848)—the range of vocabulary an author uses. For our first pass at lexical density, we will simply divide the number of unique words by the total number of words:
+Great! Now we can calculate the **lexical density** of *Moby Dick*. Statistical studies have shown that lexical density (the number of unique words per total words) is a [good metric to approximate lexical diversity](https://pdfs.semanticscholar.org/c2a8/56959d7f5880c98ccd4cfeb4b4f5b7133ec7.pdf)—the range of vocabulary an author uses. For our first pass at lexical density, we will simply divide the number of unique words by the total number of words:
 
 ```python
 len(set(text1_tokens))/len(text1_tokens)
@@ -88,13 +88,14 @@ len(set(text1_slice)) / len(text1_slice)
 
 This is a much higher number, though the number itself is arbitrary. When comparing different texts, this step is essential to get an accurate measure.
 
-If we wanted to perform the same set of steps with *Sense and Sensibility*, we could do the following:
+## Challenge
+
+Let's compare the lexical density of *Moby Dick* with *Sense and Sensibility*. That envolved doing to *Sense and Sensibility* (text2) the following:
 
 1. Make all the words lowercase and remove punctuation.
 2. Make a slice of the first 10,000 words.
 3. Calculate lexical density by dividing the length of the set of the slice by the length of the slice.
 
-After taking these steps to find Austen's lexical density, we could compare Melville's range of vocabulary to Austen's.
 
 
 [<<< Previous](positioning.md) | [Next >>>](cleaning.md)

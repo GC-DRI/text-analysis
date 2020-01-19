@@ -9,7 +9,7 @@ Thus far, we have been asking questions that take stopwords and grammatical feat
 3. Lemmatize (or stem) our words, i.e. "jumping" and "jumps" become "jump."
 
 
-## Adding Stopwords
+## Removing Stopwords
 
 We already completed step one, and are now working with our `text1_tokens`. Remember, this variable,  `text1_tokens`, contains a list of strings that we will work with. We want to remove the stop words from that list. The NLTK library comes with fairly comprehensive lists of stop words for many languages. Stop words are function words that contribute very little semantic meaning and most often have grammatical functions. Usually, these are function words such as determiners, prepositions, auxiliaries, and others.
 
@@ -40,7 +40,7 @@ for t in text1_tokens:
         text1_stops.append(t)
 ```
 
-A faster option, using list comprehensions, discussed in the previous section: 
+A faster option, using [list comprehensions](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions): 
 
 ```python
 text1_stops = [t for t in text1_tokens if t not in stops]
@@ -91,6 +91,8 @@ Let's quickly see what lemmatizing does.
 wordnet_lemmatizer.lemmatize("children")
 ```
 
+Now try this one:
+
 ```python
 wordnet_lemmatizer.lemmatize("better")
 ```
@@ -101,7 +103,7 @@ It didn't work, but...
 wordnet_lemmatizer.lemmatize("better", pos='a')
 ```
 
-... sometimes we can get better results if we define a specific part of speech.
+... sometimes we can get better results if we define a specific part of speech. "a" is for "adjective", as we learned [here](http://www.nltk.org/_modules/nltk/corpus/reader/wordnet.html).
 
 Now we will lemmatize the words in the list.
 
@@ -141,7 +143,7 @@ Now let's have a look at the words Melville uses in *Moby Dick*. We'd like to lo
 sorted(set(text1_clean))[:30]
 ```
 
-A list of all the words in *Moby Dick* should appear. Notice how there are some words we wouldn't have expected, such as 'abandon', 'abandoned', 'abandonedly', and 'abandonment'. This process is far from perfect, but it is useful. However, depending on your goal, a different process, like *stemming* might be better. We will stick with the output of the Lemmatizer, but just for illustration, we can try it out with a stemmer instead (Porter is the most common).  
+`Sorted` + `set` should give us a list of list of all the words in *Moby Dick* in alphabetical order, but we only want to see the first ones. Notice how there are some words we wouldn't have expected, such as 'abandon', 'abandoned', 'abandonedly', and 'abandonment'. This process is far from perfect, but it is useful. However, depending on your goal, a different process, like *stemming* might be better. We will stick with the output of the Lemmatizer, but just for illustration, we can try it out with a stemmer instead (Porter is the most common).  
 
 
 ## Stemming Words
@@ -209,10 +211,10 @@ If nothing happened, that is normal. Check to make sure it is there by calling f
 type(my_dist)
 ```
 
-The result should say it is an nltk probability distribution. It doesn't matter too much right now what it is, only that it worked. We can now plot this with the matplotlib function, `plot`. We want to plot the first 20 entries of the my_dist object, but we don't want it to be cumulative. (If we were working with financial data, we might want cumulative.)
+The result should say it is an nltk probability distribution. It doesn't matter too much right now what it is, only that it worked. We can now plot this with the matplotlib function, `plot`. We want to plot the first 20 entries of the "my_dist" object.
 
 ```python
-my_dist.plot(20,cumulative=False)
+my_dist.plot(20)
 ```
 
 We've made a nice image here, but it might be easier to comprehend as a list. Because this is a special probability distribution object we can call the "most common" on this, too. Let's find the twenty most common words:
@@ -229,7 +231,7 @@ b_words = ['god', 'apostle', 'angel']
 
 Then we will loop through the words in our cleaned corpus, and see if any of them are in our list of biblical words. We'll then save into another list just those words that appear in both.
 
-     ```python
+```python
 my_list = []
 for word in b_words:
     if word in text1_clean:

@@ -52,7 +52,9 @@ tag_dict
 This would be better with some order to it, but dictionaries are made to be unordered. When we google "sort dictionaries python" we find a solution in our great friend [stack overflow](https://stackoverflow.com/a/613218). Even though we cannot sort a dictionary, we can get a representation of a dictionary that is sorted. Let's do it and find out what the most common tag is.
 
 ```python
-tag_dict_sorted = sorted(tag_dict.items(), reverse=True, key=lambda kv: kv[1])
+tag_dict_sorted = sorted(tag_dict.items(),
+			 reverse=True,
+			 key=lambda kv: kv[1])
 print(tag_dict_sorted)
 ```
 

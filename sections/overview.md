@@ -6,13 +6,13 @@ This tutorial will give a brief overview of the considerations and tools involve
 
 ## Cloning the repository
 
-Before getting started, clone [this repository](https://github.com/DHRI-Curriculum/text-analysis) to your local machine. Instructions for cloning Git repositories can be found [here](https://github.com/DHRI-Curriculum/git/blob/master/sections/cloning.md).
+Before getting started, clone [this repository](https://github.com/GC-DRI/text-analysis.git) to your local machine. Instructions for cloning Git repositories can be found [here](https://github.com/GC-DRI/git/blob/master/sections/cloning.md).
 
 ## Setup and installation
 
 If you have not already installed the [Anaconda](https://www.anaconda.com/download/) distribution of Python 3, please do so. 
 
-You will also need [`nltk`](https://github.com/DHRI-Curriculum/install/blob/master/sections/nltk.md) and [`matplotlib`](https://github.com/DHRI-Curriculum/install/blob/master/sections/conda.md) to complete this tutorial. Both packages come installed with Anaconda. To check to be sure you have them, open a new Jupyter Notebook (or any IDE to run Python).
+You will also need [`nltk`](https://github.com/gc-dri/install/blob/master/sections/nltk.md) and [`matplotlib`](https://github.com/gc-dri/install/blob/master/sections/conda.md) to complete this tutorial. Both packages come installed with Anaconda. To check to be sure you have them, open a new Jupyter Notebook (or any IDE to run Python).
 
 Find Anaconda Navigator on your computer (it should be located in the folder with your other applications), and from Acadonda Navigator's interface, launch a Jupyter Notebook.
 
