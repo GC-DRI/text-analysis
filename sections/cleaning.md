@@ -238,7 +238,7 @@ for word in b_words:
         my_list.append(word)
     else:
         pass
-```		
+```
 
 And then we will print the results.
 
